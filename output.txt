@@ -1,0 +1,17 @@
+make[1]: Entering directory '/home/jettk/android/android_kernel_lge_msm8998/ouput'
+  GEN     ./Makefile
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/home/jettk/android/android_kernel_lge_msm8998/ouput'
+make[1]: Entering directory '/home/jettk/android/android_kernel_lge_msm8998/output'
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/bin2c
+  GEN     ./Makefile
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+scripts/kconfig/conf  --silentoldconfig Kconfig
+make[1]: Leaving directory '/home/jettk/android/android_kernel_lge_msm8998/output'

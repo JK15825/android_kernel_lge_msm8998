@@ -44,6 +44,7 @@ allowed_warnings = set([
     "inet_connection_sock.c:430",
     "inet_connection_sock.c:467",
     "inet6_connection_sock.c:89",
+    "block/zen-iosched.c:55:3",
  ])
 
 # Capture the name of the object file, can find it.

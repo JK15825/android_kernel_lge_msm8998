@@ -224,6 +224,25 @@ config CPU_FREQ_GOV_CONSERVATIVE
 
 	  If in doubt, say N.
 
+config CPU_FREQ_GOV_ALUCARD
+	tristate "'alucard' cpufreq governor"
+	help
+	  Alucard is based on ondemand but has been heavily tweaked to bring 
+	  better battery life and performance. It has been known to be battery
+	  friendly without sacrificing much performance.
+
+config CPU_FREQ_GOV_DARKNESS
+	tristate "'darkness' cpufreq governor"
+	help
+	  It's based on nightmare but more simple and fast, basic configs but
+	  very complex structure. It is an updated nightmare gov and improved 
+	  stability, so far it is quite stable in tests
+
+config CPU_FREQ_GOV_INTERACTIVEX
+	tristate "'interactiveX' cpufreq policy governor"
+  	help
+    	  'interactiveX' - Modified version of interactive with sleep+wake code.
+
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
 	depends on CPU_FREQ

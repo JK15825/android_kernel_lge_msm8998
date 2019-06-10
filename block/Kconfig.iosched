@@ -42,16 +42,25 @@ config IOSCHED_CFQ
 	  and server systems.
 
 	  This is the default I/O scheduler.
-config IOSCHED_ZEN
-	tristate "ZEN IO sceduler"
-	default y
-  	---help---
-	ZEN is based on the Noop, Deadline and SIO I/O schedulers. Its an FCFS 
-	(First come, first serve) based algorithm, but its not strictly FIFO. 
-	ZEN does not do any sorting. It uses deadlines for fairness, and treats 
-	synchronous requests with priority over asynchronous ones. Other than that, 
-	its pretty much the same as Noop blended with VR features. 
 
+config IOSCHED_SIO
+	tristate "Simple I/O scheduler"
+	default n
+	---help---
+	  Simple I/O aims to keep minimum overhead to achieve low latency to 
+	  serve I/O requests. No priority queue concepts, but only basic merging. 
+	  SIO is a mix between noop & deadline. No reordering or sorting of requests.
+
+config IOSCHED_ZEN
+	tristate "Zen I/O scheduler"
+	default n
+	---help---
+	  ZEN is based on the Noop, Deadline and SIO I/O schedulers. It's an FCFS 
+	  (First come, first serve) based algorithm, but it's not strictly FIFO. ZEN 
+	  does not do any sorting. It uses deadlines for fairness, and treats synchronous 
+	  requests with priority over asynchronous ones. Other than that, it's pretty 
+	  much the same as Noop blended with VR features. 
+	
 config CFQ_GROUP_IOSCHED
 	bool "CFQ Group Scheduling support"
 	depends on IOSCHED_CFQ && BLK_CGROUP
@@ -83,6 +92,7 @@ config DEFAULT_IOSCHED
 	default "deadline" if DEFAULT_DEADLINE
 	default "cfq" if DEFAULT_CFQ
 	default "noop" if DEFAULT_NOOP
+	default "sio" if DEFAULT_SIO
 	default "zen" if DEFAULT_ZEN
 
 endmenu

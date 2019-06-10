@@ -85,7 +85,7 @@
 #include <asm/tlbflush.h>
 
 #include <trace/events/sched.h>
-
+#include <linux/simple_lmk.h>
 #define CREATE_TRACE_POINTS
 #include <trace/events/task.h>
 
@@ -761,6 +761,7 @@ int mmput(struct mm_struct *mm)
 		}
 		if (mm->binfmt)
 			module_put(mm->binfmt->module);
+		simple_lmk_mm_freed(mm);
 		mmdrop(mm);
 		mm_freed = 1;
 	}
